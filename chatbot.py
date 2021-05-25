@@ -337,4 +337,51 @@ def seq2seq_model(inputs, targets, keep_prob, batch_size, sequence_length, answe
     return training_predictions, test_predictions
 
 
+# STEP 4: TRAINING THE SEQUENCE TO SEQUENCE MODEL
+  
+# SETTING THE HYPERPARAMETERS (Based upon several experimentations)
+  
+epochs = 100
+batch_size = 64
+rnn_size = 512
+num_layers = 3
+encoding_embedding_size = 512
+decoding_embedding_size = 512
+learning_rate = 0.01
+# To reduce the learning_rate to learn in depth
+learning_rate_decay = 0.9
+min_learning_rate = 0.0001
+keep_probability = 0.5
+
+# DEFINING A SESSION IN TENSORFLOW
+
+tf.reset_default_graph()
+session = tf.InteractiveSession()
+      
+# LOADING THE MODEL INPUTS OF THE SEQUENCE TO SEQUENCE MODEL     
+
+inputs, targets, lr, keep_prob = model_inputs()
+
+# SETTING THE SEQUENCE LENGTH TO MAXIMUM LENGTH
+
+sequence_length = tf.placeholder_with_default(25, None, name = 'sequence_length')
+
+# GETTING THE SHAPE OF THE INPUT TENSOR
+
+input_shape = tf.shape(inputs)
+
+# GETTING THE TRAINING AND THE TEST PREDICTIONS
+
+training_predictions, test_predictions = seq2seq_model(tf.reverse(inputs, [-1]),
+                                                       targets,
+                                                       keep_prob,
+                                                       batch_size,
+                                                       sequence_length,
+                                                       len(answersWords2int),
+                                                       len(questionsWords2int),
+                                                       encoding_embedding_size,
+                                                       decoding_embedding_size,
+                                                       rnn_size,
+                                                       num_layers,
+                                                       questionsWords2int)
       
