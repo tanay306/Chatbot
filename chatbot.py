@@ -15,6 +15,8 @@ import tensorflow as tf
 import re
 import time
 
+print(np.__version__)
+
 
 # STEP 2: DATA PREPROCESSING
 
@@ -502,3 +504,47 @@ for epoch in range(1, epochs + 1):
         print("My apologies, I cannot speak better anymore. This is the best I can do.")
         break
 print("Game Over")
+
+
+# STEP 5: TESTING THE SEQUENCE TO SEQUENCE MODEL
+
+# LOADING TE=HE WEIGHTS AND RUNNING THE SESSIONS
+
+checkpoint = "./chatbot_weights.ckpt"
+session = tf.InteractiveSession()
+session.run(tf.global_variables_initializer())
+saver = tf.train.Saver()
+saver.restore(session, checkpoint)
+ 
+
+# CONVERTING THE QUESTIONS FROM STRINGS TO LISTS OF ENCODING INTEGERS
+
+def convert_string2int(question, word2int):
+    question = clean_text(question)
+    return [word2int.get(word, word2int['<OUT>']) for word in question.split()]
+ 
+# SETTING UP THE CHATBOT
+    
+while(True):
+    question = input("You: ")
+    if question == 'Goodbye':
+        break
+    question = convert_string2int(question, questionswords2int)
+    question = question + [questionswords2int['<PAD>']] * (25 - len(question))
+    fake_batch = np.zeros((batch_size, 25))
+    fake_batch[0] = question
+    predicted_answer = session.run(test_predictions, {inputs: fake_batch, keep_prob: 0.5})[0]
+    answer = ''
+    for i in np.argmax(predicted_answer, 1):
+        if answersints2word[i] == 'i':
+            token = ' I'
+        elif answersints2word[i] == '<EOS>':
+            token = '.'
+        elif answersints2word[i] == '<OUT>':
+            token = 'out'
+        else:
+            token = ' ' + answersints2word[i]
+        answer += token
+        if token == '.':
+            break
+    print('ChatBot: ' + answer)
