@@ -46,6 +46,6 @@ Thereby we designed and trained a Deep NLP model on a Seq2Seq Architecture to cr
 ## Dependencies:
 1. Python: 3.5
 2. Tensorflow: 1.0.0
-3. numpy: 1.14.3
+3. Numpy: 1.14.3
 
 
