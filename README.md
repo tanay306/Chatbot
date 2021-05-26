@@ -20,6 +20,29 @@ The Layers can be broken down into 5 different parts:
 
 Thereby we designed and trained a Deep NLP model on a Seq2Seq Architecture to create a chatbot using the TensorFlow RNN(LSTM) model.
 
+## Outputs: 
+
+| Question				| Answer				|
+| ------------- | ------------- |
+| bill id like you to meet jack torrance | how much do you think |
+| what is it | i dont know |
+| when are you going to let the police know | you dont know what youre talking about |
+| you can do it | yeah i think so |
+| you would take a pain n the arse full stop | dont worry about it |
+| nah i dont think so | why not |
+| make sure he doesnt leave | you sure |
+| do we need him | i dont know what to do |
+| shall i leave | of course |
+| jesus christ you scared the shit out of me | whats going on |
+| im going to miss you | no youre not |
+| you fucking bastard | come on |
+| did i wake you | no you dont |
+| that can wait till the weekend | are you kidding |
+| maybe if i kiss him ill feel it | then you should have to |
+| look fry company says were responsible for every one of those | dont be silly |
+| you sent for me | yes yes i am |
+
+
 ## Dependencies:
 1. Python: 3.5
 2. Tensorflow: 1.0.0
