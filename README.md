@@ -5,8 +5,20 @@
 
 
 ## Project Desription:
-* Designed and Trained a Deep NLP model on a Seq2Seq Architecture to create a chatbot using the TensorFlow RNN(LSTM) model.
-* The dataset used to train the chatbot is the Cornell Movie Corpus Dataset, which contains nearly 220,000 lines of conversation between characters from over 600 movies, this helps in creating a chatbot that can have general conversations.
+
+By learning a large number of sequence pairs, this model generates one from the other. More kindly explained, the I/O of Seq2Seq is below:
+* Input: sentence of text data e.g. “How are you doing?”
+* Output: sentence of text data as well e.g. “Not so bad.”
+
+For training our seq2seq model, we will use Cornell Movie — Dialogs Corpus Dataset which contains over 220,579 conversational exchanges between 10,292 pairs of movie characters. And it involves 9,035 characters from 617 movies.
+Then we will input these pairs of conversations into Encoder and Decoder.
+The Layers can be broken down into 5 different parts:
+* Input Layer (Encoder and Decoder)
+* Embedding Layer (Encoder and Decoder)
+* LSTM Layer (Encoder and Decoder)
+* Decoder Output Layer
+
+Thereby we designed and trained a Deep NLP model on a Seq2Seq Architecture to create a chatbot using the TensorFlow RNN(LSTM) model.
 
 ## Dependencies:
 1. Python: 3.5
