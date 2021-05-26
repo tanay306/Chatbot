@@ -8,6 +8,6 @@
 * The dataset used to train the chatbot is the Cornell Movie Corpus Dataset, which contains nearly 220,000 lines of conversation between characters from over 600 movies, this helps in creating a chatbot that can have general conversations.
 
 ## Dependencies:
-1. Python ==> 3.5
-2. Tensorflow ==> 1.0.0
-3. numpy ==> 1.14.3
+1. Python: 3.5
+2. Tensorflow: 1.0.0
+3. numpy: 1.14.3
