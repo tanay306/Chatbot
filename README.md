@@ -12,3 +12,5 @@
 1. Python: 3.5
 2. Tensorflow: 1.0.0
 3. numpy: 1.14.3
+
+
